@@ -21,41 +21,11 @@ public class ViewModelML : INotifyPropertyChanged
 
     public ViewModelML()
     {
-        dateTime = DateTime.Now;
-        title = string.Empty;
         latitude = string.Empty;
         longitude = string.Empty;
         service = new ServiceML();
     }
 
-    private DateTime dateTime;
-    public DateTime ChosenDate
-    {
-        get { return dateTime; }
-        set
-        {
-            if (value != dateTime)
-            {
-                dateTime = value;
-                NotifyPropertyChanged();
-            }
-            _ = GetInfo();
-        }
-    }
-
-    private string title;
-    public string Title
-    {
-        get { return title; }
-        set
-        {
-            if (value != title)
-            {
-                title = value;
-                NotifyPropertyChanged();
-            }
-        }
-    }
 
     private string latitude;
     public string Latitude
@@ -103,7 +73,7 @@ public class ViewModelML : INotifyPropertyChanged
         ModelML dto = await Service.GetWeather();
         if (dto == null)
         {
-            Title = "error";
+            longitude = "error";
         }
         else
         {
