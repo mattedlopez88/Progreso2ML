@@ -8,7 +8,11 @@ namespace Progreso2ML.Models
 {
     public class ModelML
     {
-        public string lat { get; set; }
-        public string lon { get; set; }
+        public string latitude { get; set; }
+        public string longitude { get; set; }
+        public string timezone { get; set; }
+        public float apparentTemperature { get; set; }
+
+
     }
 }
